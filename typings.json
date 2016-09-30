@@ -1,0 +1,10 @@
+{
+  "name": "phaser-ts",
+  "dependencies": {},
+  "globalDevDependencies": {
+    "phaser": "github:photonstorm/phaser/typescript/typings.json"
+  },
+  "devDependencies": {
+    "lodash": "registry:npm/lodash#4.0.0+20160723033700"
+  }
+}
