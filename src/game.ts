@@ -1,5 +1,9 @@
 import * as Phaser from 'phaser';
-import { map } from 'lodash';
+
+import PreloadState from './states/preload';
+import SplashState from './states/splash';
+import PlayState from './states/play';
+import config from './config';
 
 export default class Game extends Phaser.Game {
     constructor() {
@@ -18,7 +22,7 @@ export default class Game extends Phaser.Game {
             `then rollup is used to bundle the ES6 modules into browser-executable`,
             `code.`,
             ``,
-            `To start dev environment (with change watching and LiveReload):`,
+            `To start dev environment (with watching and LiveReload):`,
             ``,
             `   npm run watch`,
             ``,
@@ -37,9 +41,9 @@ export default class Game extends Phaser.Game {
 
         function create() {
 
-            this.add.text(32, 32, title, { font: "15px Arial", fontWeight: 'bold', fill: "#0CFA68" });
+            this.add.text(32, 32, title, { font: `${config.fontSize} ${config.fontFamily}`, fontWeight: 'bold', fill: "#0CFA68" });
 
-            text = this.add.text(32, 64, '', { font: "15px Arial", fill: "#19de65" });
+            text = this.add.text(32, 64, '', { font: `${config.fontSize} ${config.fontFamily}`, fill: "#19de65" });
 
             nextLine.bind(this)();
 

@@ -5,13 +5,13 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cpx src/**/* build/ && tsc && rollup -c",
+    "build": "cpx 'src/**/*' build/ && tsc && rollup -c",
     "watch": "npm run watch-copy & npm run watch-tsc & npm run watch-rollup & npm run livereload & npm run serve",
-    "watch-copy": "cpx src/**/* build/ -w -c 'bash scripts/inject-livereload.sh'",
+    "watch-copy": "cpx 'src/**/*' build/ -w -c 'bash scripts/inject-livereload.sh'",
     "watch-tsc": "tsc -w ",
     "watch-rollup": "rollup -c -w",
     "serve": "http-server build/ -gs -p 8087 && echo 'Server launched at http://localhost:8087'",
-    "livereload": "livereload build/",
+    "livereload": "livereload build/ -w 500",
     "postinstall": "typings install && npm run build"
   },
   "author": "",
