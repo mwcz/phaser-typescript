@@ -1,6 +1,7 @@
 # phaser-typescript
 
-Skeleton project for writing Phaser games TypeScript, and Rollup for bundling.
+Skeleton project for writing Phaser games in TypeScript, and Rollup for
+bundling.
 
 ## Setup
 

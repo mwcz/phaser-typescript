@@ -1,33 +1,36 @@
 import * as Phaser from 'phaser';
 import { map } from 'lodash';
 
+function square(x: number): number {
+    return x * x;
+}
+
+const numbers: number[] = map([1,2,4], square);
+console.log(numbers);
+
 const game: Phaser.Game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { create: create });
 
 let text: Phaser.Text;
 
-let content = [
-    "The sky above the port was the color of television, tuned to a dead channel.",
-    "`It's not like I'm using,' Case heard someone say, as he shouldered his way ",
-    "through the crowd around the door of the Chat. `It's like my body's developed",
-    "this massive drug deficiency.' It was a Sprawl voice and a Sprawl joke.",
-    "The Chatsubo was a bar for professional expatriates; you could drink there for",
-    "a week and never hear two words in Japanese.",
-    "",
-    "Ratz was tending bar, his prosthetic arm jerking monotonously as he filled a tray",
-    "of glasses with draft Kirin. He saw Case and smiled, his teeth a webwork of",
-    "East European steel and brown decay. Case found a place at the bar, between the",
-    "unlikely tan on one of Lonny Zone's whores and the crisp naval uniform of a tall",
-    "African whose cheekbones were ridged with precise rows of tribal scars. `Wage was",
-    "in here early, with two joeboys,' Ratz said, shoving a draft across the bar with",
-    "his good hand. `Maybe some business with you, Case?'",
-    "",
-    "Case shrugged. The girl to his right giggled and nudged him.",
-    "The bartender's smile widened. His ugliness was the stuff of legend. In an age of",
-    "affordable beauty, there was something heraldic about his lack of it. The antique",
-    "arm whined as he reached for another mug.",
-    "",
-    "",
-    "From Neuromancer by William Gibson"
+const title = `Phaser + TypeScript Skeleton Project`;
+const content = [
+    `This project is a suitable baseline for starting a Phaser game`,
+    `written in TypeScript.`,
+    ``,
+    `The development environment uses npm scripts (no gulp or grunt)`,
+    `and features LiveReload to tighten the save+reload feedback loop.`,
+    ``,
+    `When a build occurs, tsc compiles .ts into .js (ES6 modules), then`,
+    `rollup is used to bundle the ES6 modules into browser-executable`,
+    `code.`,
+    ``,
+    `To start dev environment (with change watching and LiveReload):`,
+    ``,
+    `   npm run watch`,
+    ``,
+    `To run a single build for production (LiveReload not injected):`,
+    ``,
+    `   npm run build`,
 ];
 
 let line: string[] = [];
@@ -35,12 +38,14 @@ let line: string[] = [];
 let wordIndex = 0;
 let lineIndex = 0;
 
-let wordDelay = 12;
-let lineDelay = 40;
+let wordDelay = 60;
+let lineDelay = wordDelay * 2;
 
 function create() {
 
-    text = game.add.text(32, 32, '', { font: "15px Arial", fill: "#19de65" });
+    game.add.text(32, 32, title, { font: "15px Arial", fontWeight: 'bold', fill: "#0CFA68" });
+
+    text = game.add.text(32, 64, '', { font: "15px Arial", fill: "#19de65" });
 
     nextLine();
 
