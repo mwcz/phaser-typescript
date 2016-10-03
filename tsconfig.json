@@ -8,10 +8,10 @@
         "outDir": "build"
     },
     "files": [
-        "src/app.ts",
         "typings/index.d.ts"
     ],
     "include": [
+        "src/**/*.ts"
     ],
     "exclude": [
         "node_modules",
