@@ -46,4 +46,7 @@ jspm_packages
 typings/*
 
 # compiled js
-app.js
+src/**/*.js
+
+# build dir
+build/

@@ -7,7 +7,7 @@
         "sourceMap": true
     },
     "files": [
-        "app.ts",
+        "src/app.ts",
         "typings/index.d.ts"
     ],
     "include": [

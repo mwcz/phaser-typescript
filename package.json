@@ -5,19 +5,21 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && rollup -c",
-    "watch": "http-server -g & tsc -w & rollup -c -w",
+    "build": "cpx src/**/* build/ && tsc && rollup -c",
+    "watch": "cpx src/**/* build/ -w & http-server build/ -gso & tsc -w & rollup -c -w",
     "postinstall": "typings install && npm run build"
   },
   "author": "",
   "license": "GPL-3.0",
   "dependencies": {
-    "lodash": "^4.16.2",
-    "phaser": "^2.6.2"
+    "lodash": "^4.16.2"
   },
   "devDependencies": {
-    "catw": "^1.0.1",
+    "cpx": "^1.5.0",
+    "phaser": "^2.6.2",
     "rollup": "^0.36.1",
+    "rollup-plugin-commonjs": "^5.0.4",
+    "rollup-plugin-inject": "^2.0.0",
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-watch": "^2.5.0",
     "typescript": "^2.0.3",
