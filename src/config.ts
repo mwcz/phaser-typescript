@@ -1,5 +1,6 @@
 const config = {
-    fontSize: '20px',
+    splashFontSize: 44,
+    fontSize: 20,
     fontFamily: 'Arial',
 };
 
