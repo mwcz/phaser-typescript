@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cpx 'src/**/*' build/ && tsc && rollup -c",
-    "watch": "npm run watch-copy & npm run watch-tsc & npm run watch-rollup & npm run livereload & npm run serve",
+    "watch": "npm run watch-rollup & npm run watch-tsc & npm run watch-copy & npm run livereload & npm run serve",
     "watch-copy": "cpx 'src/**/*' build/ -w -c 'bash scripts/inject-livereload.sh'",
     "watch-tsc": "tsc -w ",
     "watch-rollup": "rollup -c -w",
