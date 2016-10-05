@@ -7,7 +7,7 @@ export default class SplashState extends Phaser.State {
     create() {
         console.log('SplashState create');
 
-        this.add.text(32, this.world.height/2 - config.splashFontSize, this.title, { font: `${config.splashFontSize}px ${config.fontFamily}`, fontWeight: 'bold', fill: "#0CFA68" });
+        this.add.text(32, this.world.height/5, this.title, { font: `${config.splashFontSize}px ${config.fontFamily}`, fontWeight: 'bold', fill: "#0CFA68" });
 
         // switch to next state after duration elapses
         this.time.events.add(this.duration, this.next, this);
