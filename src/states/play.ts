@@ -7,7 +7,7 @@ export default class PlayState extends Phaser.State {
     private line: string[] = [];
     private wordIndex: number = 0;
     private lineIndex: number = 0;
-    readonly wordDelay = 60;
+    readonly wordDelay = 100;
     readonly lineDelay = this.wordDelay * 2;
     constructor() {
         super();
