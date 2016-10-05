@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cpx 'src/**/*' build/ && tsc && rollup -c",
     "watch": "npm run watch-rollup & npm run watch-tsc & npm run watch-copy & npm run livereload & npm run serve",
-    "watch-copy": "cpx 'src/**/*' build/ -w -c 'bash scripts/inject-livereload.sh'",
     "watch-tsc": "tsc -w ",
     "watch-rollup": "rollup -c -w",
     "serve": "http-server build/ -gs -p 8087 && echo 'Server launched at http://localhost:8087'",
@@ -20,7 +19,8 @@
     "lodash": "^4.16.2"
   },
   "devDependencies": {
-    "cpx": "^1.5.0",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.0.2",
     "livereload": "^0.5.0",
     "phaser": "^2.6.2",
     "rollup": "^0.36.1",
@@ -29,6 +29,7 @@
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-watch": "^2.5.0",
     "typescript": "^2.0.3",
-    "typings": "^1.4.0"
+    "typings": "^1.4.0",
+    "watch": "^1.0.0"
   }
 }
