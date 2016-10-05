@@ -11,7 +11,7 @@ export default {
     format: 'iife',
     context: 'window',
     exports: 'none',
-    treeshake: true,
+    // treeshake: true,
     external: [
         'phaser',
         'lodash',
