@@ -2,7 +2,7 @@ import * as Phaser from 'phaser';
 
 export default class PreloadState extends Phaser.State {
     preload() {
-        // this.game.load.image('test-image', 
+        this.game.load.spritesheet('term-anim', 'assets/images/spritesheets/term.png', 600, 350);
     }
 
     create() {
