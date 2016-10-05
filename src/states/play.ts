@@ -39,7 +39,6 @@ export default class PlayState extends Phaser.State {
 
     }
     nextLine() {
-        console.log('PlayState nextLine');
 
         if (this.lineIndex === this.content.length) {
             //  We're finished
