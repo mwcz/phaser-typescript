@@ -1,7 +1,7 @@
 const config = {
     splashFontSize: 44,
     fontSize: 20,
-    fontFamily: 'Arial',
+    fontFamily: 'monospace',
 };
 
 export default config;
