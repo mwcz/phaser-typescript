@@ -10,9 +10,21 @@
         </style>
     </head>
     <body>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.3/lodash.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js"></script>
-        <script src="app.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js"></script>
+        <script>
+            require.config({
+                baseUrl: '.',
+                paths: {
+                    phaser: '//cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min',
+                    lodash: '//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.3/lodash.min',
+                    jquery: '//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js',
+                },
+                shim: {
+                    phaser: { exports: 'Phaser' },
+                },
+            });
+            require(['app']);
+        </script>
         <!-- LIVERELOAD_MARKER -->
     </body>
 </html>

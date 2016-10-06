@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-typescript": "^3.0.2",
+    "gulp-shell": "^0.5.2",
     "livereload": "^0.5.0",
     "phaser": "^2.6.2",
     "rollup": "^0.36.1",

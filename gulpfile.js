@@ -1,7 +1,5 @@
 const gulp = require('gulp');
-const ts = require('gulp-typescript');
-
-const tsProject = ts.createProject('tsconfig.json');
+const shell = require('gulp-shell');
 
 const SRC_DIR = 'src';
 const OUT_DIR = 'build';
@@ -19,13 +17,8 @@ function watchTask() {
     gulp.watch(OTHER_FILES, ['copy']);
 }
 
-function tsTask() {
-    // typescript config lives in tsconfig.json
-    const tsResult = tsProject.src().pipe(tsProject());
-    return tsResult.js.pipe(gulp.dest(OUT_DIR));
-}
-
-gulp.task('ts', tsTask);
+gulp.task('ts', shell.task(['tsc']));
+// gulp.task('ts-prod', shell.task([`tsc --outFile ${OUT_DIR}/app.js`])); // production typescript build
 gulp.task('copy', copyTask);
-gulp.task('watch', watchTask);
+gulp.task('watch', ['ts', 'copy'], watchTask);
 gulp.task('default', ['ts', 'copy']);
