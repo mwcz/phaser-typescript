@@ -1,5 +1,4 @@
 const gulp = require('gulp');
-// const watch = require('gulp-watch');
 const ts = require('gulp-typescript');
 
 const tsProject = ts.createProject('tsconfig.json');
@@ -7,23 +6,27 @@ const tsProject = ts.createProject('tsconfig.json');
 const SRC_DIR = 'src';
 const OUT_DIR = 'build';
 
-function watchCopyOut(event) {
-    // console.log(`${event.path} was ${event.type}`);
-    gulp.src(event.path, { base: SRC_DIR }).pipe(gulp.dest(OUT_DIR));
+const TS_FILES = [`${SRC_DIR}/**/*.ts`];
+const OTHER_FILES = [`${SRC_DIR}/**/*`, `!${SRC_DIR}/**/*.ts`];
+
+function copyTask(event) {
+    const path = event.path || OTHER_FILES;
+    return gulp.src(path, { base: SRC_DIR }).pipe(gulp.dest(OUT_DIR));
 }
 
 function watchTask() {
-    // compile any typescript that changes
-    gulp.watch(`${SRC_DIR}/**/*.ts`, ['ts']);
-    // anything that isn't typescript, just copy it out
-    gulp.watch([`${SRC_DIR}/**/*`, `!${SRC_DIR}/**/*.ts`], watchCopyOut);
+    gulp.watch(TS_FILES, ['ts']);
+    gulp.watch(OTHER_FILES, copyTask);
 }
 
 function tsTask() {
     // typescript config lives in tsconfig.json
+    console.log('compiling typescript');
     const tsResult = tsProject.src().pipe(tsProject());
     return tsResult.js.pipe(gulp.dest(OUT_DIR));
 }
 
-gulp.task('watch', watchTask);
 gulp.task('ts', tsTask);
+gulp.task('copy', copyTask);
+gulp.task('watch', watchTask);
+gulp.task('default', ['ts', 'copy']);
