@@ -16,12 +16,11 @@ function copyTask(event) {
 
 function watchTask() {
     gulp.watch(TS_FILES, ['ts']);
-    gulp.watch(OTHER_FILES, copyTask);
+    gulp.watch(OTHER_FILES, ['copy']);
 }
 
 function tsTask() {
     // typescript config lives in tsconfig.json
-    console.log('compiling typescript');
     const tsResult = tsProject.src().pipe(tsProject());
     return tsResult.js.pipe(gulp.dest(OUT_DIR));
 }
