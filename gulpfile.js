@@ -18,7 +18,6 @@ function watchTask() {
 }
 
 gulp.task('ts', shell.task(['tsc']));
-// gulp.task('ts-prod', shell.task([`tsc --outFile ${OUT_DIR}/app.js`])); // production typescript build
 gulp.task('copy', copyTask);
 gulp.task('watch', ['ts', 'copy'], watchTask);
 gulp.task('default', ['ts', 'copy']);
