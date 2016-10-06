@@ -6,7 +6,7 @@ import PlayState from './states/play';
 
 export default class Game extends Phaser.Game {
     constructor() {
-        super(window.innerWidth, window.innerHeight, Phaser.AUTO, 'phaser-example', null, false, false);
+        super(window.innerWidth, window.innerHeight, Phaser.AUTO, 'phaser-example', null, false, true);
 
         this.state.add('PreloadState', PreloadState, false);
         this.state.add('SplashState', SplashState, false);
