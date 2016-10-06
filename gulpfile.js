@@ -19,8 +19,8 @@ function watchTask() {
         }
     });
 
-    gulp.watch(TS_FILES, ['ts-reload']);
-    gulp.watch(OTHER_FILES, ['copy-reload']);
+    gulp.watch(TS_FILES, ['reload-after-ts']);
+    gulp.watch(OTHER_FILES, ['reload-after-copy']);
 }
 
 function browserSyncReloadTask(done) {
@@ -32,5 +32,5 @@ gulp.task('ts', shell.task(['tsc']));
 gulp.task('copy', copyTask);
 gulp.task('default', ['ts', 'copy']);
 gulp.task('watch', ['ts', 'copy'], watchTask);
-gulp.task('ts-reload', ['ts'], browserSyncReloadTask);
-gulp.task('copy-reload', ['copy'], browserSyncReloadTask);
+gulp.task('reload-after-ts', ['ts'], browserSyncReloadTask);
+gulp.task('reload-after-copy', ['copy'], browserSyncReloadTask);
