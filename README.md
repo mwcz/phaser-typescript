@@ -7,9 +7,8 @@ A skeleton project for writing Phaser games in TypeScript.
     git clone git@github.com:mwcz/phaser-typescript.git
     cd phaser-typescript
     npm install
-    npm run watch
 
-## dev commands
+## Development commands
 
 Start a development environment with automatic rebuilding and BrowserSync:
 
