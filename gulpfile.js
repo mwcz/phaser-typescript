@@ -5,11 +5,12 @@ const browserSync = require('browser-sync').create();
 const SRC_DIR = 'src';
 const OUT_DIR = 'build';
 
+const ALL_FILES = [`${SRC_DIR}/**/*`];
 const TS_FILES = [`${SRC_DIR}/**/*.ts`];
-const OTHER_FILES = [`${SRC_DIR}/**/*`, `!${SRC_DIR}/**/*.ts`];
+const OTHER_FILES = [`${SRC_DIR}/**/*`, `!${TS_FILES[0]}`];
 
 function copyTask() {
-    return gulp.src(OTHER_FILES, { base: SRC_DIR }).pipe(gulp.dest(OUT_DIR));
+    return gulp.src(ALL_FILES, { base: SRC_DIR }).pipe(gulp.dest(OUT_DIR));
 }
 
 function watchTask() {
@@ -19,7 +20,7 @@ function watchTask() {
         }
     });
 
-    gulp.watch(TS_FILES, ['reload-after-ts']);
+    gulp.watch(TS_FILES, ['copy', 'reload-after-ts']);
     gulp.watch(OTHER_FILES, ['reload-after-copy']);
 }
 
