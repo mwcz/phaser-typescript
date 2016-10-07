@@ -26,6 +26,28 @@ To create a build in the `build/` directory:
 
 ## Working with TypeScript
 
-The type definitions of external libraries are managed with `typings`.  Phaser
-and Lodash\s type definitions are included as examples, see typings.json.  Try
-`typings search` to find type definitions for other libraries.
+If you haven't worked with TypeScript before, get excited!  Try out the
+[official tutorial][tut].
+
+The type definitions of external libraries are managed with `typings`.  Type
+definitions for both Phaser and Lodash are included as examples, see
+`typings.json`.  Try `typings search` to find type definitions for other
+libraries.
+
+## External libraries
+
+Two external libraries are included in this project: Phaser and Lodash.
+They're both loaded from a CDN, for simplicity (no bower/webpack/browserify).
+
+To include additional third party libraries, follow these two steps:
+
+ 1. add it to the `paths` object in index.html
+ 2. find and install its type definitions using `typings install
+    theLibName`*, then you can `import` it into any .ts file, and make full
+    use of its handy type definitions.
+
+(*) If no type definition exists for the lib you want, you can still use it, just
+include `declare let MyLibName: any;` instead of importing it.  You won't get
+the benefits of static typing, but the lib can still be used.
+
+[tut]: http://www.typescriptlang.org/docs/tutorial.html
