@@ -47,6 +47,7 @@ typings/*
 
 # compiled js
 src/**/*.js
+!src/lib/**/*.js
 
 # build dir
 build/
